@@ -10,5 +10,3 @@ if (sys.argv[1]=='add'):
 if sys.argv[1]=='del':
     cmd = dev.rpc.request_userfw_local_auth_table_delete_user(user_name=str(sys.argv[2]))
 dev.close()
-
-
