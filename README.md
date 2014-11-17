@@ -2,6 +2,8 @@ SRX Firewall - Dynamic entry of User parameters
 ===============================================
 The SRX firewall can be configured to inspect a network users name and role in the network as part of Firewall policy. Typically this is done through integration with LDAP or Active Directory. There is also the ability to statically define users from the CLI or through the Netconf API. This simple script allows a remote user or system to automate the process of adding/deleting users. 
 
+You will need to modify the script to have the correct parameters for HOST, USERNAME and PASSWORD. All communication is made using the Netconf APIs and the Juniper Python EZPY libraries. 
+
 Usage 
 =====
 Adding a user called Fred with the IP address of 10.0.0.1 as a guest user 
