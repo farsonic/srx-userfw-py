@@ -71,7 +71,7 @@ This script was originally created to be used with the DNSMASQ DHCP server but c
 * argument4 DHCP Client Name (received during DHCP Request) 
 ```
 
-For our integration between DNSMASQ and the SRX userfw feature we associated the username with MAC Address, IP-address with the users IP-Address and DHCP Client-ID with the users role. Note, it is also possible to execute the script multple times for the same user and keep assigning multiple roles.  
+For integration between DNSMASQ and the SRX userfw feature we are assoicating the username with MAC Address, IP-address with the users IP-Address and DHCP Client-ID with the users role. Note, it is also possible to execute the script multple times for the same user and keep assigning multiple roles.  
 
 In order to integrate the above script into your DNSMASQ enviroment add the following configuration entry into your /etc/dnsmasq.conf file
 
@@ -96,4 +96,4 @@ Source IP       Username     Roles
 192.168.0.149   b0:34:95:2a: Windows-XYZ
 ```
 
-With the above script in place and operational users will be dynamically added and removed from the local authentication table. With the correct firewall policy in place and logging enabled all events will be recording to include the users MAC-Address, IP-Address, Username and role. This would be specifically useful in an uncontrolled environemnt we records need to be kept of user activity and there is no ability to intergrate a wider userfw intagration with Active Directory. 
+With the above script in place and operational, users details will be dynamically added and removed from the local authentication table. With the correct firewall policy in place and logging enabled all events will be recording to include the users MAC-Address, IP-Address, Username and role. This would be specifically useful in an uncontrolled environment were records need to be kept of user activity and there is no ability to intergrate a wider userfw intagration with Active Directory. 
