@@ -99,3 +99,11 @@ Source IP       Username     Roles
 ```
 
 With the above script in place and operational, users details will be dynamically added and removed from the local authentication table. With the correct firewall policy in place and logging enabled all events will be recording to include the users MAC-Address, IP-Address, Username and role. This would be specifically useful in an uncontrolled environment were records need to be kept of user activity and there is no ability to intergrate a wider userfw intagration with Active Directory. 
+
+Example Logging Output
+======================
+```
+<14>1 2014-11-17T05:11:41.504Z SRX220 RT_FLOW - RT_FLOW_SESSION_CLOSE [junos@2636.1.1.1.2.58 reason="TCP RST" source-address="192.168.0.141" source-port="55969" destination-address="1.2.3.4" destination-port="443" service-name="junos-https" nat-source-address="10.0.0.3" nat-source-port="32391" nat-destination-address="1.2.3.4" nat-destination-port="443" src-nat-rule-name="interface-nat" dst-nat-rule-name="None" protocol-id="6" policy-name="http" source-zone-name="trust" destination-zone-name="untrust" session-id-32="1272" packets-from-client="18" bytes-from-client="2726" packets-from-server="14" bytes-from-server="4937" elapsed-time="48" application="SSL" nested-application="twitter" username="aa:aa:aa:aa:aa:aa" roles="MacBook-Pro" packet-incoming-interface="ge-0/0/0.0" encrypted="Yes"]
+
+```
+
