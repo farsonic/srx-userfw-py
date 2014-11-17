@@ -4,8 +4,6 @@ The SRX firewall can be configured to inspect a network users name and role in t
 
 Usage 
 =====
-
-
 Adding a user called Fred with the IP address of 10.0.0.1 as a guest user 
 ```
 user@server:~# ./update-userfw.py add fred 10.0.0.1 guest 
@@ -20,7 +18,6 @@ user@server:~# ./update-userfw.py del fred
 
 SRX Junos CLI commands 
 ======================
-
 Summary view of all statically defined users. 
 ```
 admin@SRX220> show security user-identification local-authentication-table all    
@@ -39,3 +36,26 @@ Username: fred
 Roles: guest
 ```
 
+SRX Security Policy enforcement 
+===============================
+The SRX can leverage both the username and the role assignment as part of security policy. This allows the policy to allow any authenticated user, or individual users and/or their roles. An example policy to only let the "fred" user through the firewall between the trust and untrust zone. 
+
+```
+[edit security policies from-zone trust to-zone untrust]
+admin@SRX220# show 
+policy allow-fred {
+    match {
+        source-address any;
+        destination-address any;
+        application any;
+        source-identity fred;
+    }
+    then {
+        permit;
+        log {
+            session-init;
+            session-close;
+        }
+    }
+}
+```
