@@ -15,7 +15,7 @@ Deleting the user called Fred and all associated attributes
 
 ```
 user@server:~# ./update-userfw.py del fred
-``
+```
 
 
 SRX Junos CLI commands 
